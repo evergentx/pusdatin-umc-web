@@ -1,110 +1,103 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import {
-    AlertCircle,
-    CheckCircle2,
-    Info,
-    AlertTriangle,
-    X,
-} from "lucide-react"
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 const alertVariants = cva(
-    "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
-    {
-        variants: {
-            variant: {
-                default: "bg-background text-foreground",
-                destructive:
-                    "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-                success:
-                    "border-success/50 text-success dark:border-success [&>svg]:text-success",
-                warning:
-                    "border-warning/50 text-warning-foreground dark:border-warning [&>svg]:text-warning-foreground",
-                info: "border-info/50 text-info dark:border-info [&>svg]:text-info",
-            },
-        },
-        defaultVariants: {
-            variant: "default",
-        },
-    }
+  'relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current [&>*:not(svg)]:col-start-2',
+  {
+    variants: {
+      variant: {
+        default: 'bg-card text-card-foreground',
+        destructive:
+          'text-destructive bg-card [&>svg]:text-current *:data-[slot=alert-description]:text-destructive/90',
+        info: "bg-blue-500/15 text-blue-700 dark:bg-blue-500/25 dark:text-blue-300 [&>svg]:text-blue-700 dark:[&>svg]:text-blue-300",
+        success: "bg-emerald-500/15 text-emerald-700 dark:bg-emerald-500/25 dark:text-emerald-300 [&>svg]:text-emerald-700 dark:[&>svg]:text-emerald-300",
+        warning: "bg-amber-500/15 text-amber-700 dark:bg-amber-500/25 dark:text-amber-300 [&>svg]:text-amber-700 dark:[&>svg]:text-amber-300",
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  },
 )
 
-const icons = {
-    default: Info,
-    success: CheckCircle2,
-    warning: AlertTriangle,
-    destructive: AlertCircle,
-    info: Info,
-};
 
-interface AlertProps
-    extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof alertVariants> {
-    dismissible?: boolean
-    onDismiss?: () => void
+interface AlertProps extends React.ComponentProps<'div'>, VariantProps<typeof alertVariants> {
+  title?: string;
+  dismissible?: boolean;
+  onDismiss?: () => void;
 }
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-    ({ className, variant = "default", title, dismissible, onDismiss, children, ...props }, ref) => {
-        const [isVisible, setIsVisible] = React.useState(true)
-        const Icon = icons[variant || "default"]
-
-        if (!isVisible) return null
-
-        const handleDismiss = () => {
-            setIsVisible(false);
-            onDismiss?.();
-        };
-
-        return (
-            <div
-                ref={ref}
-                role="alert"
-                className={cn(alertVariants({ variant }), className)}
-                {...props}
-            >
-                <Icon className="h-4 w-4" />
-                {title && <h5 className="mb-1 font-medium leading-none tracking-tight">{title}</h5>}
-                <div className="text-sm [&_p]:leading-relaxed">{children}</div>
-                {dismissible && (
-                    <button
-                        onClick={handleDismiss}
-                        className="absolute right-4 top-4 rounded-md opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                        aria-label="Dismiss"
-                    >
-                        <X className="h-4 w-4" />
-                    </button>
-                )}
-            </div>
-        )
-    }
-)
-Alert.displayName = "Alert"
-
-const AlertTitle = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-    <h5
-        ref={ref}
-        className={cn("mb-1 font-medium leading-none tracking-tight", className)}
-        {...props}
-    />
-))
-AlertTitle.displayName = "AlertTitle"
-
-const AlertDescription = React.forwardRef<
-    HTMLParagraphElement,
-    React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
+function Alert({
+  className,
+  variant,
+  title,
+  dismissible,
+  onDismiss,
+  children,
+  ...props
+}: AlertProps) {
+  return (
     <div
-        ref={ref}
-        className={cn("text-sm [&_p]:leading-relaxed", className)}
-        {...props}
+      data-slot="alert"
+      role="alert"
+      className={cn(alertVariants({ variant }), className)}
+      {...props}
+    >
+      {title && <AlertTitle>{title}</AlertTitle>}
+      {children}
+      {dismissible && (
+        <button onClick={onDismiss} type="button" className="absolute right-4 top-4 rounded-md p-1 opacity-50 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+          <span className="sr-only">Close</span>
+        </button>
+      )}
+    </div>
+  )
+}
+
+function AlertTitle({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="alert-title"
+      className={cn(
+        'col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight',
+        className,
+      )}
+      {...props}
     />
-))
-AlertDescription.displayName = "AlertDescription"
+  )
+}
+
+function AlertDescription({
+  className,
+  ...props
+}: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="alert-description"
+      className={cn(
+        'text-muted-foreground col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
 
 export { Alert, AlertTitle, AlertDescription }

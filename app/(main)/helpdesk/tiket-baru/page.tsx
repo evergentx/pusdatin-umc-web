@@ -11,13 +11,13 @@ import {
     CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Select, SelectOption } from "@/components/ui/Select";
-import { Textarea } from "@/components/ui/Textarea";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { NativeSelect, SelectOption } from "@/components/ui/native-select";
+import { Textarea } from "@/components/ui/textarea";
 import { FileUpload } from "@/components/ui/FileUpload";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Alert } from "@/components/ui/Alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert } from "@/components/ui/alert";
 import { useTicketStore } from "@/store/ticket-store";
 import { createTicketSchema } from "@/lib/validations";
 import { TicketCategory, TicketPriority } from "@/types/ticket";
@@ -160,7 +160,7 @@ export default function CreateTicketPage() {
                             <CardTitle className="text-lg">Informasi Masalah</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <Select
+                            <NativeSelect
                                 label="Kategori Masalah"
                                 options={categoryOptions}
                                 value={draft.category || ""}
@@ -189,7 +189,7 @@ export default function CreateTicketPage() {
                                 required
                             />
 
-                            <Select
+                            <NativeSelect
                                 label="Prioritas"
                                 options={priorityOptions}
                                 value={draft.priority || TicketPriority.MEDIUM}

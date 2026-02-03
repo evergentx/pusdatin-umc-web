@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { CheckCircle, AlertTriangle, XCircle, Clock, RefreshCw } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ServiceStatus } from "@/types/service";
 import { getMockSystemServices } from "@/lib/mock";
 import { formatRelativeTime } from "@/lib/format";
@@ -171,10 +171,10 @@ export default function StatusPage() {
                                             <div className="h-2 bg-muted rounded-full overflow-hidden">
                                                 <div
                                                     className={`h-full ${service.uptime >= 99.9
-                                                            ? "bg-success"
-                                                            : service.uptime >= 99
-                                                                ? "bg-warning"
-                                                                : "bg-destructive"
+                                                        ? "bg-success"
+                                                        : service.uptime >= 99
+                                                            ? "bg-warning"
+                                                            : "bg-destructive"
                                                         }`}
                                                     style={{ width: `${service.uptime}%` }}
                                                 />

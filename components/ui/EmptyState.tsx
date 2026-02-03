@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Inbox, FileX, Search, AlertCircle } from "lucide-react";
-import { Button } from "./Button";
+import { Button } from "./button";
 
 interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
     icon?: React.ReactNode;

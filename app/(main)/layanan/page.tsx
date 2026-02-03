@@ -16,8 +16,8 @@ import {
     Smartphone,
     CheckCircle2,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
     title: "Layanan",
@@ -171,7 +171,6 @@ export default function LayananPage() {
                                 return (
                                     <Link key={service.title} href={service.href}>
                                         <Card
-                                            hover
                                             className="h-full group transition-all duration-300 hover:border-primary/30"
                                         >
                                             <CardContent className="p-6">

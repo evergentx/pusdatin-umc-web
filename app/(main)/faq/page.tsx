@@ -1,9 +1,11 @@
+
 import { Metadata } from "next";
 import Link from "next/link";
 import { Search, Headphones, CheckCircle2, ArrowRight } from "lucide-react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/Accordion";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { NativeSelect, SelectOption } from "@/components/ui/native-select";
 
 export const metadata: Metadata = {
     title: "FAQ",

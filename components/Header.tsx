@@ -15,7 +15,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-} from "@/components/ui/NavigationMenu";
+} from "@/components/ui/navigation-menu";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -118,7 +118,7 @@ export function Header() {
                                 if (link.label === "Helpdesk" && hasChildren) {
                                     return (
                                         <NavigationMenuItem key={link.label}>
-                                            <DropdownMenu>
+                                            <DropdownMenu modal={false}>
                                                 <DropdownMenuTrigger asChild>
                                                     <button
                                                         className={cn(

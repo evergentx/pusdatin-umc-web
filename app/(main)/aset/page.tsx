@@ -16,11 +16,11 @@ import {
     AlertCircle,
     Package,
 } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { NativeSelect, SelectOption } from "@/components/ui/native-select";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { PageLoader } from "@/components/ui/LoadingSpinner";
 import { NoDataState } from "@/components/ui/EmptyState";
 
@@ -246,13 +246,13 @@ export default function AssetPage() {
                                             leftIcon={<Search size={18} />}
                                         />
                                     </div>
-                                    <Select
+                                    <NativeSelect
                                         options={categoryOptions}
                                         value={categoryFilter}
                                         onChange={setCategoryFilter}
                                         placeholder="Kategori"
                                     />
-                                    <Select
+                                    <NativeSelect
                                         options={statusOptions}
                                         value={statusFilter}
                                         onChange={setStatusFilter}

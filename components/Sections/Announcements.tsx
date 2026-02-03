@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Bell, AlertTriangle, Info, Megaphone } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { formatRelativeTime } from "@/lib/format";
 import { getRecentAnnouncements } from "@/lib/mock";
 import { AnnouncementPriority } from "@/types/service";
@@ -55,7 +55,7 @@ export default function Announcements() {
                         const Icon = config.icon;
 
                         return (
-                            <Card key={announcement.id} hover className="group">
+                            <Card key={announcement.id} className="group hover:shadow-md transition-all duration-300">
                                 <CardContent className="p-5">
                                     <div className="flex items-start gap-4">
                                         <div

@@ -6,7 +6,7 @@ import { Upload, X, FileText, Image as ImageIcon, File } from "lucide-react";
 import { formatFileSize } from "@/lib/format";
 import { validateFile } from "@/lib/validations";
 import { ALLOWED_FILE_EXTENSIONS, MAX_FILE_SIZE } from "@/lib/constants";
-import { Button } from "./Button";
+import { Button } from "./button";
 
 interface FileUploadProps {
     label?: string;
