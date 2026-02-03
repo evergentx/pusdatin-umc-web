@@ -75,7 +75,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Layanan</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.layanan.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -92,7 +92,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Informasi</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.informasi.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -122,7 +122,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Tautan UMC</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.tautan.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <a
                     href={link.href}
                     target="_blank"
