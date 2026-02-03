@@ -12,7 +12,7 @@ import {
   LogIn,
 } from "lucide-react";
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 interface NavChild {
   label: string;
@@ -253,8 +253,8 @@ export default function Navbar() {
                                 {subItem.description && (
                                   <div
                                     className={`text-xs mt-0.5 ${isActive(subItem.href)
-                                        ? "text-white/80"
-                                        : "text-muted-foreground"
+                                      ? "text-white/80"
+                                      : "text-muted-foreground"
                                       }`}
                                   >
                                     {subItem.description}

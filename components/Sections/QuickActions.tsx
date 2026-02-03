@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Headphones, Search, Laptop, User, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const quickActions = [
     {
@@ -51,8 +51,7 @@ export default function QuickActions() {
                         return (
                             <Link key={action.title} href={action.href}>
                                 <Card
-                                    hover
-                                    className={`h-full transition-all duration-200 ${action.variant === "primary"
+                                    className={`h-full transition-all duration-200 hover:shadow-lg ${action.variant === "primary"
                                         ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90"
                                         : "hover:border-primary/30"
                                         }`}

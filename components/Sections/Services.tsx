@@ -10,8 +10,8 @@ import {
     Mail,
     Wifi,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const services = [
     {
@@ -86,8 +86,7 @@ export default function Services() {
                         return (
                             <Link key={service.title} href={service.href}>
                                 <Card
-                                    hover
-                                    className="h-full group transition-all duration-300 hover:border-primary/30"
+                                    className="h-full group transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
                                 >
                                     <CardHeader className="pt-6 px-6 pb-2">
                                         <div

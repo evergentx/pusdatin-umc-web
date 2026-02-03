@@ -10,11 +10,11 @@ import {
     ChevronDown,
     X,
 } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Select } from "@/components/ui/Select";
-import { Card, CardContent } from "@/components/ui/Card";
-import { Badge, StatusBadge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { NativeSelect, SelectOption } from "@/components/ui/native-select";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge, StatusBadge } from "@/components/ui/badge";
 import { PageLoader } from "@/components/ui/LoadingSpinner";
 import { NoDataState } from "@/components/ui/EmptyState";
 import { formatRelativeTime, formatDate } from "@/lib/format";
@@ -186,19 +186,19 @@ export default function TicketHistoryPage() {
                         {showFilters && (
                             <div className="mt-4 pt-4 border-t border-border">
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <Select
+                                    <NativeSelect
                                         label="Status"
                                         options={statusOptions}
                                         value={statusFilter}
                                         onChange={setStatusFilter}
                                     />
-                                    <Select
+                                    <NativeSelect
                                         label="Prioritas"
                                         options={priorityOptions}
                                         value={priorityFilter}
                                         onChange={setPriorityFilter}
                                     />
-                                    <Select
+                                    <NativeSelect
                                         label="Kategori"
                                         options={categoryOptions}
                                         value={categoryFilter}

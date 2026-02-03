@@ -15,10 +15,10 @@ import {
     AlertTriangle,
     CheckCircle,
 } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Badge, StatusBadge } from "@/components/ui/Badge";
-import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge, StatusBadge } from "@/components/ui/badge";
+import { Alert } from "@/components/ui/alert";
 import { TicketTimeline } from "@/components/ui/Timeline";
 import { PageLoader } from "@/components/ui/LoadingSpinner";
 import { NotFoundState } from "@/components/ui/EmptyState";
