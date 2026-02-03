@@ -111,15 +111,15 @@ export const NAV_ITEMS = [
 // Footer Links
 export const FOOTER_LINKS = {
     layanan: [
-        { label: "Helpdesk", href: "/helpdesk" },
+        { label: "Helpdesk", href: "/pengembangan" },
         { label: "Aset TI", href: "/aset" },
         { label: "Status Sistem", href: "/status" },
-        { label: "SSO", href: "/layanan/sso" },
+        { label: "SSO", href: "https://www.sso.umc.ac.id/" },
     ],
     informasi: [
-        { label: "Tentang Pusdatin", href: "/tentang" },
+        { label: "Tentang Pusdatin", href: "/pengembangan" },
         { label: "FAQ", href: "/faq" },
-        { label: "Kontak", href: "/kontak" },
+        { label: "Kontak", href: "/pengembangan" },
     ],
     tautan: [
         { label: "Portal UMC", href: "https://umc.ac.id" },
